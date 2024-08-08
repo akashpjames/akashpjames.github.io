@@ -4,6 +4,7 @@ const TerminaPortfolio = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState([]);
   const terminalRef = useRef(null);
+  const inputRef = useRef(null);
 
   const commands = {
     help: 'Available commands: about, skills, experience, projects, contact, clear',
@@ -36,6 +37,12 @@ const TerminaPortfolio = () => {
         setOutput(prev => [...prev, { type: 'input', text: input }, { type: 'output', text: response }]);
       }
       setInput('');
+    }
+  };
+
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
   };
 
@@ -90,7 +97,7 @@ const TerminaPortfolio = () => {
   };
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} onClick={focusInput}>
       <div style={terminalStyle} ref={terminalRef}>
         {output.map((item, index) => (
           <div key={index} style={{ marginBottom: '10px' }}>
@@ -101,6 +108,7 @@ const TerminaPortfolio = () => {
         <div style={inputContainerStyle}>
           <span>$ </span>
           <input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
