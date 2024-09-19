@@ -32,7 +32,7 @@ const TerminaPortfolio = () => {
       }
 
       if (trimmedInput === 'clear') {
-        setOutput([{ type: 'output', text: "Welcome to my portfolio! Type 'help' for available commands." }]);
+        setOutput([{ type: 'output', text: "Hello! This is Akash Pulikkottil James. Welcome to my terminal! Type 'help' for available commands." }]);
       } else {
         setOutput(prev => [...prev, { type: 'input', text: input }, { type: 'output', text: response }]);
       }
@@ -47,7 +47,7 @@ const TerminaPortfolio = () => {
   };
 
   useEffect(() => {
-    setOutput([{ type: 'output', text: "Welcome to Akash's website! Type 'help' for available commands." }]);
+    setOutput([{ type: 'output', text: "Hello! This is Akash Pulikkottil James. Welcome to my terminal! Type 'help' for available commands." }]);
   }, []);
 
   useEffect(() => {
